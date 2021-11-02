@@ -1,0 +1,83 @@
+CREATE TABLE IF NOT EXISTS `users` (
+  username varchar(255) UNIQUE NOT NULL PRIMARY KEY,
+  password varchar(255) NOT NULL,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  birthday DATE,
+  gender varchar(255) NOT NULL,
+  city varchar(255) NOT NULL,
+  country varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `posts` (
+  post_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  author_id varchar(255) NOT NULL,
+  title varchar(255) NOT NULL,
+  description varchar(255) NOT NULL,
+  country varchar(255) NOT NULL,
+  city varchar(255) NOT NULL,
+  post_date TIMESTAMP,
+  FOREIGN KEY (author_id)
+      REFERENCES users(username)
+      ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `user_posts` (
+  username varchar(255) NOT NULL ,
+  post_id int(11) NOT NULL,
+  Primary key (username, post_id),
+  FOREIGN KEY (post_id)
+      REFERENCES posts(post_id),
+  FOREIGN KEY (username)
+      REFERENCES users(username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `notifications` (
+  author_id varchar(255) NOT NULL ,
+  recipient_id varchar(255) NOT NULL ,
+  type varchar(255) NOT NULL ,
+  Primary key (author_id, recipient_id, type),
+  FOREIGN KEY(author_id)
+    REFERENCES users(username),
+  FOREIGN KEY(recipient_id)
+    REFERENCES users(username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `friends` (
+  user1 varchar(255) NOT NULL ,
+  user2 varchar(255) NOT NULL ,
+  Primary key (user1, user2)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `messages` (
+  msg_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  author_id varchar(255) NOT NULL,
+  recipient_id varchar(255) NOT NULL,
+  data varchar(255) NOT NULL,
+  send_date TIMESTAMP ,
+  FOREIGN KEY (author_id)
+      REFERENCES users(username),
+  FOREIGN KEY (recipient_id)
+      REFERENCES users(username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `trips` (
+  trip_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  city varchar(255) NOT NULL,
+  country varchar(255) NOT NULL,
+  budget int(11),
+  start_date TIMESTAMP ,
+  end_date TIMESTAMP 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `user_trips` (
+  trip_id int(11) NOT NULL,
+  username varchar(255) NOT NULL,
+  PRIMARY KEY(trip_id, username),
+  FOREIGN KEY (username)
+      REFERENCES users(username),
+  FOREIGN KEY (trip_id)
+      REFERENCES trips(trip_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

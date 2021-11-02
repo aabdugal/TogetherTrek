@@ -1,0 +1,58 @@
+/* message board styles */
+.message-board {
+  position: absolute;
+  width: 80%;
+  height: 90%;
+  bottom: 5%;
+}
+.message-list {
+  box-sizing: border-box;
+  padding: 0 0 0 6px;
+  margin: 0;
+  width: 100%;
+  max-height: 700px;
+  list-style: none;
+  overflow: auto;
+  height: 90%;
+}
+.message-list > li {
+  margin: 10px;
+}
+.current-user-message {
+  text-align: right;
+}
+.other-user-message {
+  text-align: left;
+}
+.current-user-message > h6,
+.other-user-message > h6 {
+  font-size: 11px;
+  color: rgb(0, 0, 0);
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+.current-user-message > p,
+.other-user-message > p {
+  color: rgb(0, 0, 0);
+  display: inline;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: #c4c4c4;
+}
+.send-message-form {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 5%;
+}
+.send-message-form input {
+  background: #c4c4c4;
+  padding: 15px 10px;
+  border: none;
+  font-weight: 200;
+  border-radius: 10px;
+  width: 100%;
+}
+.send-message-form input:focus {
+  outline-width: 0;
+}
