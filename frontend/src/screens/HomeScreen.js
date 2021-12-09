@@ -19,12 +19,11 @@ const HomeScreen = () => {
             using the service near you. While there are many other services that
             allow users to find travel partners, like Gaffl, TogetherTrek is one
             of, if not the only, one that offers real-time safety features, trip
-            budgeting, and groups of more than just 2 people. If login doesn't
-            work, backend probably crashed.
+            budgeting, and groups of more than just 2 people.
           </div>
           <div>
-            You can check its status there:
-            https://still-thicket-45274.herokuapp.com/
+            If login doesn't work, backend probably crashed. You can check its
+            status there: https://still-thicket-45274.herokuapp.com/
           </div>
         </Col>
       </Row>
