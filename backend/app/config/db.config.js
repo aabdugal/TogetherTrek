@@ -4,3 +4,5 @@ module.exports = {
   PASSWORD: 'togethertrek',
   PORT: '3306',
 }
+
+// git subtree push --prefix backend heroku master
