@@ -204,21 +204,6 @@ const ProfileScreen = () => {
 
           <Col md={3}>
             <h2>My Trips</h2>
-            {/* <Container>
-                  {myTrips &&
-                    myTrips.map((el) =>
-                      el === undefined ? (
-                        <></>
-                      ) : (
-                        <Trip
-                          trip={el}
-                          userId={userInfo._id}
-                          profileView={true}
-                          key={el._id}
-                        />
-                      )
-                    )}
-                </Container> */}
           </Col>
         </Row>
       )}

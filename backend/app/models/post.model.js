@@ -7,6 +7,7 @@ const Post = function (post) {
   this.country = post.country
   this.city = post.city
   this.post_date = post.post_date
+  this.budget = post.budget
 }
 
 Post.create = (newPost, result) => {
@@ -111,6 +112,39 @@ Post.removeAll = (result) => {
     console.log(`deleted ${res.affectedRows} posts`)
     result(null, res)
   })
+}
+
+// Post.searchBy = (result) => {
+//   sql.query('SELECT * FROM posts', (err, res) => {
+//     if (err) {
+//       console.log('error: ', err)
+//       result(null, err)
+//       return
+//     }
+
+//     console.log('posts: ', res)
+//     result(null, res)
+//   })
+// }
+
+Post.searchBy = (type, query, result) => {
+  sql.query(
+    `SELECT * from posts WHERE ${type} LIKE '${query}%'`,
+    (err, res) => {
+      if (err) {
+        console.log('error: ', err)
+        result(err, null)
+        return
+      }
+
+      if (res.length) {
+        result(null, res)
+        return
+      }
+
+      result({ kind: 'not_found' }, null)
+    }
+  )
 }
 
 module.exports = Post

@@ -23,6 +23,7 @@ const FriendsScreen = () => {
     const { data } = await axios.get(
       `${path}/user-friends/${userInfo.username}`
     )
+    console.log(data)
     setFriends(data)
   }, [])
   return (

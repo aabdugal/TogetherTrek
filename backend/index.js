@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 require('./app/routes/user.routes.js')(app)
 require('./app/routes/post.routes.js')(app)
 require('./app/routes/requests.routes.js')(app)
+// require('./app/routes/trips.routes.js')(app)
 
 const PORT = 3001
 app.listen(PORT, () => {

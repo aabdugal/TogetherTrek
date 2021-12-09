@@ -114,17 +114,18 @@ exports.deleteAll = (req, res) => {
 }
 
 exports.login = (req, res) => {
-  if (!req.body) {
+  if (!req.body || !req.body.password) {
     res.status(400).send({
       message: 'Content can not be empty!',
     })
   }
   User.findById(req.body.username, (err, data) => {
-    if (err) {
+    if (err || !data.password) {
       res.status(500).send({
         message: 'Error retrieving User with username ' + req.params.username,
       })
     }
+
     if (req.body.password != data.password) {
       res.status(500).send({
         message: 'Wrong password!',

@@ -8,6 +8,10 @@ module.exports = (app) => {
 
   app.get('/posts/:post_id', posts.findOne)
 
+  app.put('/posts', posts.query)
+
+  app.get('/info', posts.info)
+
   app.put('/posts/:post_id', posts.update)
 
   app.delete('/posts/:post_id', posts.delete)

@@ -12,6 +12,8 @@ const CreatePostScreen = ({ history }) => {
   const [country, setCountry] = useState('')
   const [city, setCity] = useState('')
   const [message, setMessage] = useState('')
+  const [budget, setBudget] = useState('')
+
   const postHandler = async (e) => {
     e.preventDefault()
     try {
@@ -21,6 +23,7 @@ const CreatePostScreen = ({ history }) => {
         description: description,
         post_date: new Date().toISOString().slice(0, 19).replace('T', ' '),
         country: country,
+        budget: parseInt(budget),
         city: city,
       }
       console.log(new Date().toISOString().slice(0, 19).replace('T', ' '))
@@ -52,6 +55,15 @@ const CreatePostScreen = ({ history }) => {
             placeholder='Enter Description'
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId='exampleForm.ControlTextarea1'>
+          <Form.Label>Budget</Form.Label>
+          <Form.Control
+            type='nums'
+            placeholder='Enter Budget'
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='text'>

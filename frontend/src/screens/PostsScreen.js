@@ -9,6 +9,7 @@ import { Redirect } from 'react-router-dom'
 import Post from '../components/Post'
 import { WAKEUP } from '../constants/actionConstants'
 import Message from '../components/Message'
+import { Link } from 'react-router-dom'
 
 const PostsScreen = () => {
   const [posts, setPosts] = useState([])
@@ -35,7 +36,12 @@ const PostsScreen = () => {
   }
   return (
     <Container>
-      <h2>Users:</h2>
+      <h2>User Posts:</h2>
+      <Row className='py-3'>
+        <Col>
+          Have an Account? <Link to='/query'>Query Posts</Link>
+        </Col>
+      </Row>
       {success && <Message variant='success'>Post Updated</Message>}
       {userInfo && userInfo.username == 'admin' && (
         <Button variant='primary' onClick={(e) => removeAll(e)}>

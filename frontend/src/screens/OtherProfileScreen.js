@@ -43,7 +43,6 @@ const OtherProfileScreen = ({ location, history, useParams }) => {
   }
 
   useEffect(async () => {
-    console.log('gay')
     const userStorage = JSON.parse(localStorage.getItem('userInfo'))
     setUserInfo(userStorage)
     const { data } = await axios.get(`${path}/users/${id}`)

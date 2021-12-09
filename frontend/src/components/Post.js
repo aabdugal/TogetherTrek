@@ -68,6 +68,7 @@ const Post = ({ post, userInfo, setSuccess }) => {
                   <Card.Text>
                     To {post.city}, {post.country}
                   </Card.Text>
+                  <Card.Text>Budget: ${post.budget}</Card.Text>
                   <Container>
                     {post.author_id !== userInfo.username && (
                       <Row>

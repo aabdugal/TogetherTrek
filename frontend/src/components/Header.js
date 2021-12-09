@@ -34,19 +34,22 @@ const Header = ({ history, location }) => {
           ) : (
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className='ms-auto'>
-                <LinkContainer to='./users'>
+                <LinkContainer to='/topUsers'>
+                  <Nav.Link> Info</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to='/users'>
                   <Nav.Link> Users</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to='./friends'>
+                <LinkContainer to='/friends'>
                   <Nav.Link> Friends</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to='./notifications'>
+                <LinkContainer to='/notifications'>
                   <Nav.Link> Notifications</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to='./posts'>
+                <LinkContainer to='/posts'>
                   <Nav.Link> Posts</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to='./createpost'>
+                <LinkContainer to='/createpost'>
                   <Nav.Link> Create Post</Nav.Link>
                 </LinkContainer>
                 <NavDropdown title={userInfo.username} id='basic-nav-dropdown'>

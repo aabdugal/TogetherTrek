@@ -17,6 +17,9 @@ import OtherProfileScreen from './screens/OtherProfileScreen'
 import NotificationsScreen from './screens/NotificationsScreen'
 import FriendsScreen from './screens/FriendsScreen'
 import MessageBoard from './components/MessageBoard'
+import QueryScreen from './screens/QueryScreen'
+import TripsScreen from './screens/TripsScreen'
+import TopUsersScreen from './screens/TopUsersScreen'
 
 const App = () => {
   const [userInfo, setUserInfo] = useState()
@@ -64,6 +67,9 @@ const App = () => {
             <Route path='/notifications' component={NotificationsScreen} />
             <Route path='/friends' component={FriendsScreen} />
             <Route path='/messages/:id' component={MessageBoard} />
+            <Route path='/query' component={QueryScreen} />
+            <Route path='/trips' component={TripsScreen} />
+            <Route path='/topUsers' component={TopUsersScreen} />
           </Container>
         </main>
       </Router>

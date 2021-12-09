@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   description varchar(255) NOT NULL,
   country varchar(255) NOT NULL,
   city varchar(255) NOT NULL,
+  budget int(11),
   post_date TIMESTAMP,
   FOREIGN KEY (author_id)
       REFERENCES users(username)
@@ -81,3 +82,9 @@ CREATE TABLE IF NOT EXISTS `user_trips` (
   FOREIGN KEY (trip_id)
       REFERENCES trips(trip_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+Indexes:
+
+CREATE INDEX hashCity on posts (city);
