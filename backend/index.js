@@ -4,7 +4,7 @@ const cors = require('cors')
 const app = express()
 app.use(express.json())
 app.use(cors())
-
+console.log()
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
