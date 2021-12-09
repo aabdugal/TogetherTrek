@@ -120,18 +120,18 @@ exports.login = (req, res) => {
     })
   }
   User.findById(req.body.username, (err, data) => {
-    if (err || !data.password) {
+    if (err || data == null) {
       res.status(500).send({
         message: 'Error retrieving User with username ' + req.params.username,
       })
-    }
-
-    if (req.body.password != data.password) {
-      res.status(500).send({
-        message: 'Wrong password!',
-      })
     } else {
-      res.status(200).send(data)
+      if (data != null && req.body.password != data.password) {
+        res.status(500).send({
+          message: 'Wrong password!',
+        })
+      } else {
+        res.status(200).send(data)
+      }
     }
   })
 }
